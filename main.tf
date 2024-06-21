@@ -41,16 +41,23 @@ resource "aws_security_group" "WS-SG" {
 
 }
 
-resource "aws_security_group_rule" "Allow_https" {
+resource "aws_security_group_rule" "Allow_http" {
   security_group_id = aws_security_group.WS-SG.id
   type              = "ingress"
-  from_port         = 443
-  to_port           = 443
+  from_port         = 80
+  to_port           = 80
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
 }
 
-
+resource "aws_security_group_rule" "SSH" {
+  security_group_id = aws_security_group.WS-SG.id
+  protocol = "SSH"
+  type = "ingress"
+  to_port = 22
+  from_port = 22
+  cidr_blocks = ["0.0.0.0/0"]
+}
 
 
 resource "aws_instance" "WebServer1" {

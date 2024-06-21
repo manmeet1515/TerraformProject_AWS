@@ -26,9 +26,3 @@ variable "variable_sub_AZb" {
   default = "us-east-1b"
 }
 
-variable "github_token" {
-  type = string
-  description = "Specifies the github token"
-  sensitive = true
-  
-}
