@@ -26,3 +26,10 @@ variable "variable_sub_AZb" {
   default = "us-east-1b"
 }
 
+variable "ami" {
+  description = "This is the value for the ami"
+}
+
+variable "instance_type" {
+  description = "This is the value for the instance type"
+}
